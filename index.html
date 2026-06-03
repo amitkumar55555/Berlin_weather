@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berlin Weather</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── Dynamic scene backgrounds ── -->
+  <div class="scene" id="scene">
+
+    <!-- Rain scene -->
+    <div class="rain-container" id="rainContainer"></div>
+
+    <!-- Sunny scene -->
+    <div class="sun-wrap" id="sunWrap">
+      <div class="sun">
+        <div class="sun-core"></div>
+        <div class="rays" id="rays"></div>
+      </div>
+      <div class="heat-shimmer"></div>
+    </div>
+
+    <!-- Cloudy scene -->
+    <div class="cloud-wrap" id="cloudWrap">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+    </div>
+
+    <!-- Snow scene -->
+    <div class="snow-container" id="snowContainer"></div>
+
+    <!-- Fog scene -->
+    <div class="fog-wrap" id="fogWrap">
+      <div class="fog-layer fog-1"></div>
+      <div class="fog-layer fog-2"></div>
+    </div>
+
+    <!-- Thunder scene -->
+    <div class="thunder-wrap" id="thunderWrap">
+      <div class="lightning" id="lightning"></div>
+    </div>
+
+  </div>
+
+  <!-- ── Card ── -->
+  <main class="card" id="card">
+    <header class="card-header">
+      <span class="city-label">BERLIN</span>
+      <span class="coords">52.52°N · 13.40°E</span>
+    </header>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p>Fetching live data…</p>
+    </div>
+
+    <div class="weather-content" id="weatherContent" style="display:none">
+      <div class="temp-row">
+        <span class="temp" id="temp">--</span>
+        <div class="temp-meta">
+          <span class="feels" id="feels">Feels like --</span>
+          <span class="hi-lo" id="hiLo">↑ -- ↓ --</span>
+        </div>
+      </div>
+
+      <div class="condition-row">
+        <span class="condition-icon" id="condIcon">☁</span>
+        <span class="condition-text" id="condText">Loading…</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-label">HUMIDITY</span>
+          <span class="stat-value" id="humidity">--%</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">WIND</span>
+          <span class="stat-value" id="wind">-- km/h</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">PRECIP</span>
+          <span class="stat-value" id="precip">-- mm</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">UV INDEX</span>
+          <span class="stat-value" id="uv">--</span>
+        </div>
+      </div>
+
+      <div class="updated" id="updated">Last updated --:--</div>
+    </div>
+
+    <div class="error-msg" id="errorMsg" style="display:none">
+      <span>⚠</span> Could not fetch weather data. Please try again.
+      <button onclick="fetchWeather()">Retry</button>
+    </div>
+  </main>
+
+  <script src="weather.js"></script>
+</body>
+</html>
